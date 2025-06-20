@@ -1,21 +1,19 @@
 <script setup lang="ts">
   import { useCounter } from '../composables/useCounter';
+  import { useToggle } from '../composables/useToggle';
+  
   const {count,increment,decrement} = useCounter();
+  const { state,toggle } = useToggle();
+
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    {{count}}
-    <button type="button" @click="increment">+</button>
-    <button type="button" @click="decrement">-</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
+    {{state}}
+    <button @click="toggle()">Toggle</button>
   </div>
-
   <p>
     Check out
     <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
